@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=REM&display=swap');
 
 * {
   margin: 0;
@@ -6,11 +6,18 @@
   font-family: 'Barlow', sans-serif;
 }
 
+h1 {
+  font-family: 'REM', sans-serif;
+}
+
+a {
+ color: black;
+}
+
 .sidebar {
   height: 100vh;
   position: sticky;
   top: 0;
-  border-right: 1px solid #e3e3e3;
   box-shadow: 0 0 20px #e3e3e3;
 }
 
@@ -22,10 +29,20 @@ ul {
   list-style: none;
 }
 
-a {
-  color: black;
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
 }
 
-a:hover {
-  color: black;
+.sidebar-link {
+  border-radius: 10px;
+  padding: 6px 1rem;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.sidebar-link:hover {
+  color: white;
+  background: rgb(112, 83, 216);
+  text-decoration: none;
 }
