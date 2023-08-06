@@ -1,3 +1,4 @@
+require('dotenv').config();
 const favicon = require('serve-favicon');
 const createError = require('http-errors');
 const express = require('express');
@@ -9,7 +10,20 @@ const indexRouter = require('./routes/index');
 const collectionRouter = require('./routes/collection');
 
 const app = express();
+
+// use favicon
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+
+// set up mongoose connection
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
+const mongoDB = process.env.MONGODB_CONNECTION_STRING;
+
+main().catch((err) => console.log(err));
+
+async function main() {
+  await mongoose.connect(mongoDB);
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
