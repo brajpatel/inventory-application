@@ -46,6 +46,21 @@ router.get('/developer/delete', developer_controller.developer_delete_get);
 router.post('/developer/delete', developer_controller.developer_delete_post);
 
 // GENRE ROUTES
+router.get('/genres', genre_controller.genre_list);
+
+router.get('/genre/:id', genre_controller.genre_detail);
+
+router.get('/genre/create', genre_controller.genre_create_get);
+
+router.post('/genre/create', genre_controller.genre_create_post);
+
+router.get('/genre/update', genre_controller.genre_update_get);
+
+router.post('/genre/update', genre_controller.genre_update_post);
+
+router.get('/genre/delete', genre_controller.genre_delete_get);
+
+router.post('/genre/delete', genre_controller.genre_delete_post);
 
 // PLATFORM ROUTES
 
