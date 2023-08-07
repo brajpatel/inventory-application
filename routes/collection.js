@@ -63,5 +63,20 @@ router.get('/genre/delete', genre_controller.genre_delete_get);
 router.post('/genre/delete', genre_controller.genre_delete_post);
 
 // PLATFORM ROUTES
+router.get('/platforms', platform_controller.platform_list);
+
+router.get('/platform/:id', platform_controller.platform_detail);
+
+router.get('/platform/create', platform_controller.platform_create_get);
+
+router.post('/platform/create', platform_controller.platform_create_post);
+
+router.get('/platform/update', platform_controller.platform_update_get);
+
+router.post('/platform/update', platform_controller.platform_update_post);
+
+router.get('/platform/delete', platform_controller.platform_delete_get);
+
+router.post('/platform/delete', platform_controller.platform_delete_post);
 
 module.exports = router;
