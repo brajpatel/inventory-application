@@ -29,6 +29,21 @@ router.get('/game/delete', game_controller.game_delete_get);
 router.post('/game/delete', game_controller.game_delete_post);
 
 // DEVELOPER ROUTES
+router.get('/developers', developer_controller.developer_list);
+
+router.get('/developer/:id', developer_controller.developer_detail);
+
+router.get('/developer/create', developer_controller.developer_create_get);
+
+router.post('/developer/create', developer_controller.developer_create_post);
+
+router.get('/developer/update', developer_controller.developer_update_get);
+
+router.post('/developer/update', developer_controller.developer_update_post);
+
+router.get('/developer/delete', developer_controller.developer_delete_get);
+
+router.post('/developer/delete', developer_controller.developer_delete_post);
 
 // GENRE ROUTES
 
