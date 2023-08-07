@@ -4,7 +4,7 @@ const router = express.Router();
 const game_controller = require('../controllers/gameController');
 const developer_controller = require('../controllers/developerController');
 const genre_controller = require('../controllers/genreController');
-const platformController = require('../controllers/platformController');
+const platform_controller = require('../controllers/platformController');
 
 // COLLECTION ROUTE
 router.get('/', function(req, res, next) {
