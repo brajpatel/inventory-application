@@ -18,11 +18,11 @@ a {
   height: 100vh;
   position: sticky;
   top: 0;
-  box-shadow: 0 0 20px #e3e3e3;
+  box-shadow: 0 0 20px #cbcbcb;
 }
 
 hr {
-  border-color: #e3e3e3;
+  border-color: #dfdfdf;
 }
 
 ul {
@@ -42,6 +42,6 @@ ul {
 
 .sidebar-link:hover {
   color: white;
-  background: rgb(112, 83, 216);
+  background: rgb(124, 105, 191);
   text-decoration: none;
 }
