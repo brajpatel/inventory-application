@@ -16,9 +16,11 @@ a {
 
 .sidebar {
   height: 100vh;
+  max-height: 100vh;
   position: sticky;
   top: 0;
   box-shadow: 0 0 20px #cbcbcb;
+  overflow-y: auto;
 }
 
 hr {
