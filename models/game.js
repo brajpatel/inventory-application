@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const GameSchema = new Schema({
     name: { type: String, minLength: 3, maxLength: 100, required: true },
     release_date: { type: Date },
-    description: { type: String, minLength: 20, maxLength: 150, required: true },
+    description: { type: String, minLength: 20, maxLength: 300, required: true },
     price: { type: Number, required: true },
     number_in_stock: { type: Number, required: true },
     developer: { type: String, required: true },
