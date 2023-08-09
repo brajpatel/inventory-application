@@ -11,14 +11,14 @@ exports.index = asyncHandler (async(req, res, next) => {
         numGenres,
         numPlatforms
     ] = await Promise.all([
-        Game.countDocuments({}).exec,
-        Developer.countDocuments({}).exec,
-        Genre.countDocuments({}).exec,
-        Platform.countDocuments({}).exec
+        Game.countDocuments({}).exec(),
+        Developer.countDocuments({}).exec(),
+        Genre.countDocuments({}).exec(),
+        Platform.countDocuments({}).exec()
     ])
 
     res.render('collection', {
-        title: "The Collection",
+        title: "Collection",
         game_count: numGames,
         developer_count: numDevelopers,
         genre_count: numGenres,
