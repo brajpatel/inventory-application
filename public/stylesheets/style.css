@@ -55,6 +55,11 @@ ul {
   align-items: center;
 }
 
+.home,
+.collection {
+  font-size: 1.25rem;
+}
+
 .home {
   box-shadow: 0 0 20px #cbcbcb;
   border-radius: 20px;
@@ -74,10 +79,10 @@ ul {
   }
 }
 
-.home p {
-  font-size: 1.1rem;
-}
-
 .github-link {
   color: rgb(81, 32, 255);
+}
+
+.collection p {
+  font-size: 1.4rem;
 }

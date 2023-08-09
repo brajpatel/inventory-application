@@ -1,12 +1,15 @@
 extends layout
 
 block content
-  h2 The #{title}
+  div(class="p-3 collection")
+    h1 The #{title}
+    hr
+    p Here you can see an overall view of the collection and its records
 
-  p The collection currently has the following record counts: 
+    p The collection currently has the following record counts: 
 
-  ul
-    li #[strong Games:] !{game_count}
-    li #[strong Developers:] !{developer_count}
-    li #[strong Genres:] !{genre_count}
-    li #[strong Platforms:] !{platform_count}
+    ul
+      li(class="mb-1") #[strong Games:] !{game_count}
+      li(class="mb-1") #[strong Developers:] !{developer_count}
+      li(class="mb-1") #[strong Genres:] !{genre_count}
+      li(class="mb-1") #[strong Platforms:] !{platform_count}
