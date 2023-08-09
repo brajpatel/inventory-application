@@ -1,13 +1,14 @@
 extends layout
 
 block content
-    h1= title
+    div(class="p-4 main-container")
+      h1= title
 
-    ul
-      each game in game_list
-        li
-          a(href=game.url) #{game.name}
-          | (#{game.developer.name})
+      ul
+        each game in game_list
+          li
+            a(href=game.url) #{game.name}
+            | (#{game.developer.name})
 
-      else
-        li There are no games.
+        else
+          li There are no games.

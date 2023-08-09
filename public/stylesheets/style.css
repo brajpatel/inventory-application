@@ -81,7 +81,7 @@ ul {
   color: rgb(81, 32, 255);
 }
 
-.collection {
+.main-container {
   font-size: 1.3rem;
   opacity: 0;
   transform: translateX(15px);
