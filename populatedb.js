@@ -138,7 +138,7 @@ async function createGames() {
             developers[0],
             [platforms[0], platforms[1], platforms[2], platforms[3], platforms[4]],
             [genres[0], genres[3], genres[5], genres[6], genres[7]],
-            "image"
+            "/images/elden-ring.jpg"
         ),
         gameCreate(1,
             "Minecraft",
@@ -149,7 +149,7 @@ async function createGames() {
             developers[5],
             [platforms[0], platforms[2], platforms[7]],
             [genres[2], genres[8]],
-            "image"
+            "/images/minecraft.jpg"
         ),
         gameCreate(2,
             "The Last of Us: Part 2",
@@ -160,7 +160,7 @@ async function createGames() {
             developers[7],
             [platforms[0]],
             [genres[0], genres[2]],
-            "image"
+            "/images/the-last-of-us.jpg"
         ),
         gameCreate(3,
             "Red Dead Redemption 2",
@@ -171,7 +171,7 @@ async function createGames() {
             developers[3],
             [platforms[0], platforms[2], platforms[7]],
             [genres[0], genres[5]],
-            "image"
+            "/images/red-dead-redemption.jpg"
         ),
         gameCreate(4,
             "Sekiro: Shadows Die Twice",
@@ -182,7 +182,7 @@ async function createGames() {
             developers[0],
             [platforms[0], platforms[2], platforms[7]],
             [genres[0], genres[5]],
-            "image"
+            "/images/sekiro.jpg"
         ),
         gameCreate(5,
             "Assassin's Creed Odyssey",
@@ -193,7 +193,7 @@ async function createGames() {
             developers[6],
             [platforms[0], platforms[2], platforms[5], [platforms[7]]],
             [genres[0], genres[5], genres[7]],
-            "image"
+            "/images/assasins-creed.jpg"
         ),
         gameCreate(6,
             "The Legend of Zelda: Tears of the Kingdom",
@@ -204,7 +204,7 @@ async function createGames() {
             developers[2],
             [platforms[5]],
             [genres[0], genres[4], genres[5], genres[7]],
-            "image"
+            "/images/the-legend-of-zelda.jpg"
         ),
     ]);
 }
