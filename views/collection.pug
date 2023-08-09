@@ -3,5 +3,10 @@ extends layout
 block content
   h2 The #{title}
 
-  img(src='/images/elden-ring.jpg' width="600")
-  h2 Ring
+  p The collection currently has the following record counts: 
+
+  ul
+    li #[strong Games:] !{game_count}
+    li #[strong Developers:] !{developer_count}
+    li #[strong Genres:] !{genre_count}
+    li #[strong Platforms:] !{platform_count}
