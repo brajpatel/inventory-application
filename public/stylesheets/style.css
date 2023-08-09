@@ -51,9 +51,6 @@ ul {
 
 .home-container {
   height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .home {
@@ -98,4 +95,20 @@ ul {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.game-list {
+  gap: 2rem;
+}
+
+.game-card {
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #cbcbcb;
+}
+
+.game-card img {
+  max-width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }

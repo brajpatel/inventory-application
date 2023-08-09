@@ -1,14 +1,15 @@
 extends layout
 
 block content
-    div(class="p-4 main-container")
-      h1= title
+  div(class="p-4 main-container")
+    h1= title
+    hr
+    ul(class="d-flex flex-wrap game-list")
+      each game in game_list
+        li(class="text-center game-card")
+          a(href=game.url) 
+            img(src=(game.image==='' ? '/images/default-image.jpg' : game.image) alt="game image")
+            p #{game.name}
 
-      ul
-        each game in game_list
-          li
-            a(href=game.url) #{game.name}
-            | (#{game.developer.name})
-
-        else
-          li There are no games.
+      else
+        li There are no games.
