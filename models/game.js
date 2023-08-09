@@ -9,7 +9,7 @@ const GameSchema = new Schema({
     number_in_stock: { type: Number, required: true },
     developer: { type: String, required: true },
     platform: [{ type: Schema.Types.ObjectId, ref: 'Platforn', required: true }],
-    genre: [{ type: Schema.Types.ObjectId, ref: 'Genre' }],
+    genre: [{ type: Schema.Types.ObjectId, ref: 'Genre', required: true }],
     image: { type: String }
 
 })
