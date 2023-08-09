@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const collection_controller = require('../controllers/collectionController');
 const game_controller = require('../controllers/gameController');
 const developer_controller = require('../controllers/developerController');
 const genre_controller = require('../controllers/genreController');
 const platform_controller = require('../controllers/platformController');
 
 // COLLECTION ROUTE
-router.get('/', function(req, res, next) {
-  res.render('collection', { title: 'Collection' });
-});
+router.get('/', collection_controller.index);
 
 // GAME ROUTES
 router.get('/games', game_controller.game_list);
