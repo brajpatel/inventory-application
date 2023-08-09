@@ -2,7 +2,12 @@ const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
 
 exports.game_list = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Game List");
+    const allGames = await Game.find({}, "name release_date developer image")
+        .sort({ name: 1 })
+        .populate("developer")
+        .exec();
+
+    res.render("game_list", { title: "Game List", game_list: allGames });
 })
 
 exports.game_detail = asyncHandler(async (req, res, next) => {
