@@ -47,3 +47,37 @@ ul {
   background: rgb(124, 105, 191);
   text-decoration: none;
 }
+
+.home-container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home {
+  box-shadow: 0 0 20px #cbcbcb;
+  border-radius: 20px;
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home p {
+  font-size: 1.1rem;
+}
+
+.github-link {
+  color: rgb(81, 32, 255);
+}
