@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  div(class="p-3 collection")
+  div(class="p-4 collection")
     h1 The #{title}
     hr
-    p Here you can see an overall view of the collection and its records
+    p Here you can see an overall view of the collection and its records.
 
     p The collection currently has the following record counts: 
 
@@ -13,3 +13,5 @@ block content
       li(class="mb-1") #[strong Developers:] !{developer_count}
       li(class="mb-1") #[strong Genres:] !{genre_count}
       li(class="mb-1") #[strong Platforms:] !{platform_count}
+
+    p Create new games, developers and more to help these numbers grow even bigger.
