@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div(class="p-4 main-container")
+    h1= title
+    hr
+    ul
+      each genre, index in genre_list
+        li(class="mb-2 initial-position cascade-fade-in" style=`--delay:${index + 1}`)
+          a(href=genre.url class="h4") #{genre.name}
+
+      else
+        li There are no genres here! Be the first to create one.
