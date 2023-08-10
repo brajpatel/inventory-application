@@ -105,6 +105,22 @@ ul {
   max-width: 350px;
   border-radius: 10px;
   box-shadow: 0 0 20px #cbcbcb;
+  opacity: 0;
+  transform: translateX(10px);
+  animation: cascadeFadeIn 0.5s ease forwards;
+  animation-delay: calc(0.15s * var(--delay));
+}
+
+@keyframes cascadeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .game-card img {

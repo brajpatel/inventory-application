@@ -5,8 +5,8 @@ block content
     h1= title
     hr
     ul(class="d-flex flex-wrap game-list")
-      each game in game_list
-        li(class="text-center game-card")
+      each game, index in game_list
+        li(class="text-center game-card" style=`--delay:${index + 1}`)
           a(href=game.url) 
             img(src=(game.image==='' ? '/images/default-image.jpg' : game.image) alt="game image")
             p #{game.name}
