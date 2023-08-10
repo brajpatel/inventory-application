@@ -2,7 +2,7 @@ const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
 
 exports.game_list = asyncHandler(async (req, res, next) => {
-    const allGames = await Game.find({}, "name release_date developer image")
+    const allGames = await Game.find({}, "name developer image")
         .sort({ name: 1 })
         .populate("developer")
         .exec();
