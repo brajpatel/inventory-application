@@ -6,7 +6,7 @@ block content
     hr
     ul(class="d-flex flex-wrap")
       each platform, index in platform_list
-        li(class="mr-4 mb-4 px-4 py-2 initial-position cascade-fade-in card" style=`--delay:${index + 1}`)
+        li(class="cascade-fade-in card" style=`--delay:${index + 1}`)
           a(href=platform.url) #{platform.name}
 
       else

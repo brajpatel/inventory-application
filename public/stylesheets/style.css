@@ -104,20 +104,23 @@ ul {
   }
 }
 
-.card {
-  border: 1px solid #dfdfdf;
-  transition: 0.25s ease;
-  border-radius: 50px;
-  font-size: 1.4rem;
-}
-
-.card:hover {
-  box-shadow: 0 0 20px #d6d6d6;
-}
-
-.initial-position {
+.cascade-fade-in {
   opacity: 0;
   transform: translateX(10px);
+  animation: cascadeFadeIn 0.5s ease forwards;
+  animation-delay: calc(0.15s * var(--delay));
+}
+
+@keyframes cascadeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .game-list {
@@ -135,23 +138,6 @@ ul {
   box-shadow: 0 0 20px #a0a0a0;
 }
 
-.cascade-fade-in {
-  animation: cascadeFadeIn 0.5s ease forwards;
-  animation-delay: calc(0.15s * var(--delay));
-}
-
-@keyframes cascadeFadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 .game-card a:hover {
   color: black;
   text-decoration: none;
@@ -161,4 +147,17 @@ ul {
   max-width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.card {
+  border: 1px solid #dfdfdf;
+  transition: 0.25s ease;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  margin: 0 1.2rem 1.2rem 0;
+  padding: 0.5rem 1.4rem;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px #d6d6d6;
 }
