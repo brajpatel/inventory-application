@@ -9,8 +9,9 @@ block content
         li(class="text-center game-card" style=`--delay:${index + 1}`)
           a(href=game.url) 
             img(src=(game.image==='' ? '/images/default-image.jpg' : game.image) alt="game image")
-            p(class="p-2") #{game.name}
-            p #{game.developer.name}
+            div(class="p-2")
+              p #[strong #{game.name}]
+              p - #{game.developer.name}
 
       else
         li There are no games.
