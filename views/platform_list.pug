@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div(class="p-4 main-container")
+    h1= title
+    hr
+    ul
+      each platform, index in platform_list
+        li(class="mb-2 initial-position cascade-fade-in" style=`--delay:${index + 1}`)
+          a(href=platform.url class="h4") #{platform.name}
+
+      else
+        li There are no platforms here! Be the first to create one.

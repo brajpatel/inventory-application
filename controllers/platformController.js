@@ -2,7 +2,9 @@ const Platform = require('../models/platform');
 const asyncHandler = require('express-async-handler');
 
 exports.platform_list = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Platform List");
+    const allPlatforms = await Platform.find().sort({ name: 1 }).exec();
+
+    res.render("platform_list", { title: "Platform List", platform_list: allPlatforms });
 })
 
 exports.platform_detail = asyncHandler(async (req, res, next) => {
