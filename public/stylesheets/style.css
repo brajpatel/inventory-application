@@ -104,11 +104,11 @@ ul {
   max-width: 350px;
   border-radius: 10px;
   border: 1px solid #dfdfdf;
-  /* opacity: 0; */
-  /* transform: translateX(10px); */
+  opacity: 0;
+  transform: translateX(10px);
   transition: 0.25s ease;
-  /* animation: cascadeFadeIn 0.5s ease forwards; */
-  /* animation-delay: calc(0.15s * var(--delay)); */
+  animation: cascadeFadeIn 0.5s ease forwards;
+  animation-delay: calc(0.15s * var(--delay));
 }
 
 .game-card:hover {

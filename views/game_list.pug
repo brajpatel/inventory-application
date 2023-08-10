@@ -11,7 +11,7 @@ block content
             img(src=(game.image==='' ? '/images/default-image.jpg' : game.image) alt="game image")
             div(class="p-2")
               p #[strong #{game.name}]
-              p - #{game.developer.name}
+              p - #{game.developer.name} -
 
       else
-        li There are no games.
+        li There are no games here! Be the first to create one.
