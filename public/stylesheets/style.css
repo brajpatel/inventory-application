@@ -18,6 +18,10 @@ a {
  color: black;
 }
 
+a:hover {
+  color: rgb(81, 32, 255);
+}
+
 .sidebar {
   height: 100vh;
   max-height: 100vh;
@@ -96,6 +100,11 @@ ul {
   }
 }
 
+.initial-position {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
 .game-list {
   gap: 2rem;
 }
@@ -104,15 +113,16 @@ ul {
   max-width: 350px;
   border-radius: 10px;
   border: 1px solid #dfdfdf;
-  opacity: 0;
-  transform: translateX(10px);
   transition: 0.25s ease;
-  animation: cascadeFadeIn 0.5s ease forwards;
-  animation-delay: calc(0.15s * var(--delay));
 }
 
 .game-card:hover {
   box-shadow: 0 0 20px #a0a0a0;
+}
+
+.cascade-fade-in {
+  animation: cascadeFadeIn 0.5s ease forwards;
+  animation-delay: calc(0.15s * var(--delay));
 }
 
 @keyframes cascadeFadeIn {

@@ -2,7 +2,9 @@ const Developer = require('../models/developer');
 const asyncHandler = require('express-async-handler');
 
 exports.developer_list = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Developer List");
+    const allDevelopers = await Developer.find().sort({ name: 1 }).exec();
+
+    res.render("developer_list", { title: "Developer List", developer_list: allDevelopers });
 })
 
 exports.developer_detail = asyncHandler(async (req, res, next) => {
