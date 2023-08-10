@@ -100,6 +100,17 @@ ul {
   }
 }
 
+.card {
+  border: 1px solid #dfdfdf;
+  transition: 0.25s ease;
+  border-radius: 50px;
+  font-size: 1.4rem;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px #d6d6d6;
+}
+
 .initial-position {
   opacity: 0;
   transform: translateX(10px);
