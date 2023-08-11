@@ -1,3 +1,4 @@
+const { DateTime } = require("luxon");
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -16,6 +17,10 @@ const GameSchema = new Schema({
 
 GameSchema.virtual('url').get(function() {
     return `/collection/game/${this._id}`;
+})
+
+GameSchema.virtual('release_date_formatted').get(function() {
+    return DateTime.fromJSDate(this.release_date).toLocaleString(DateTime.DATE_MED);
 })
 
 module.exports = mongoose.model('Game', GameSchema);
