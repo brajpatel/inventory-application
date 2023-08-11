@@ -162,15 +162,16 @@ ul {
   box-shadow: 0 0 20px #d6d6d6;
 }
 
-.game-title {
-  font-size: 2rem;
-  border-bottom: 1px solid #dfdfdf;
-  padding-bottom: 0.4rem;
+.game-detail {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1rem;
 }
 
 .game-detail img {
   max-width: 100%;
   border-radius: 15px;
+  box-shadow: 0 5px 10px rgb(87, 87, 87);
 }
 
 .game-info {
@@ -179,4 +180,26 @@ ul {
   justify-content: center;
   gap: 0.6rem;
   border: 1px solid #dfdfdf;
+  box-shadow: 0 5px 10px #d6d6d6;
+  border-radius: 15px;
+  padding: 0 1rem;
+}
+
+.game-title {
+  font-size: 2rem;
+  border-bottom: 1px solid #dfdfdf;
+  padding-bottom: 0.4rem;
+}
+
+@media(max-width: 1500px) {
+  .game-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .game-info {
+    padding: 1rem;
+  }
 }
