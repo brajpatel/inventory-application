@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  div(class="p-4 main-container")
+    h1= title
+    hr
+    div(class="d-flex flex-row game-detail")
+      img(src=(game.image==='' ? '/images/default-image.jpg' : game.image) alt="game image")
+      div
+        

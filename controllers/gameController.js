@@ -11,7 +11,15 @@ exports.game_list = asyncHandler(async (req, res, next) => {
 })
 
 exports.game_detail = asyncHandler(async (req, res, next) => {
-    res.send(`TO DO: Game Detail: ${req.params.id}`);;
+    const game = await Game.findById(req.params.id).exec();
+
+    if(!game) {
+        const err = new Error("Game not found");
+        err.status = 404;
+        return next(err);
+    }
+
+    res.render("game_detail", { title: game.name, game: game });
 })
 
 exports.game_create_get = asyncHandler(async (req, res, next) => {
