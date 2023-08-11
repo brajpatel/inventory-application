@@ -11,7 +11,11 @@ exports.game_list = asyncHandler(async (req, res, next) => {
 })
 
 exports.game_detail = asyncHandler(async (req, res, next) => {
-    const game = await Game.findById(req.params.id).exec();
+    const game = await Game.findById(req.params.id)
+        .populate("developer")
+        .populate("genre")
+        .populate("platform")
+        .exec();
 
     if(!game) {
         const err = new Error("Game not found");

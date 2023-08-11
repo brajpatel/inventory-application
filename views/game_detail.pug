@@ -4,7 +4,14 @@ block content
   div(class="p-4 main-container")
     h1= title
     hr
-    div(class="d-flex flex-row game-detail")
-      img(src=(game.image==='' ? '/images/default-image.jpg' : game.image) alt="game image")
-      div
-        
+    div(class="row game-detail")
+      div(class="col-sm-6")
+        img(src=(game.image==='' ? '/images/default-image.jpg' : game.image) alt="game image")
+      div(class="col-sm-6")
+        p #{game.release_date}
+        p #{game.developer.name}
+        p #{game.description}
+        each genre in game.genre
+          p #{genre.name}
+        each platform in game.platform
+          p #{platform.name}
