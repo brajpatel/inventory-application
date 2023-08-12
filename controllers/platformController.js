@@ -1,4 +1,5 @@
 const Platform = require('../models/platform');
+const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
 
 exports.platform_list = asyncHandler(async (req, res, next) => {
@@ -8,7 +9,18 @@ exports.platform_list = asyncHandler(async (req, res, next) => {
 })
 
 exports.platform_detail = asyncHandler(async (req, res, next) => {
-    res.send(`TO DO: Platform Detail: ${req.params.id}`);;
+    const [platform, allGamesForPlatform] = await Promise.all([
+        Platform.findById(req.params.id).exec(),
+        Game.find({ genre: req.params.id }, "name description image").exec()
+    ]);
+
+    if(!platform) {
+        const err = new Error("Platform found");
+        err.status = 404;
+        return next(err);
+    }
+
+    res.render("platform_detail", { title: platform.name, platform: platform, platform_games: allGamesForPlatform });
 })
 
 exports.platform_create_get = asyncHandler(async (req, res, next) => {
