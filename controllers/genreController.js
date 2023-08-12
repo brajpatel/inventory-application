@@ -1,4 +1,5 @@
 const Genre = require('../models/genre');
+const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
 
 exports.genre_list = asyncHandler(async (req, res, next) => {
@@ -8,7 +9,18 @@ exports.genre_list = asyncHandler(async (req, res, next) => {
 })
 
 exports.genre_detail = asyncHandler(async (req, res, next) => {
-    res.send(`TO DO: Genre Detail: ${req.params.id}`);;
+    const [genre, allGamesInGenre] = await Promise.all([
+        Genre.findById(req.params.id).exec(),
+        Game.find({ genre: req.params.id }, "name description image").exec()
+    ]);
+
+    if(!genre) {
+        const err = new Error("Genre not found");
+        err.status = 404;
+        return next(err);
+    }
+
+    res.render("genre_detail", { title: genre.name, genre: genre, genre_games: allGamesInGenre });
 })
 
 exports.genre_create_get = asyncHandler(async (req, res, next) => {
