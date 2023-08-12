@@ -11,7 +11,7 @@ exports.developer_list = asyncHandler(async (req, res, next) => {
 exports.developer_detail = asyncHandler(async (req, res, next) => {
     const [developer, allGamesByDeveloper] = await Promise.all([
         Developer.findById(req.params.id).exec(),
-        Game.find({ developer: req.params.id }, "name ").exec()
+        Game.find({ developer: req.params.id }, "name description image").exec()
     ]);
 
     if(!developer) {
@@ -20,7 +20,7 @@ exports.developer_detail = asyncHandler(async (req, res, next) => {
         return next(err);
     }
 
-    res.render("developer_detail", { title: developer.name, developer: developer });
+    res.render("developer_detail", { title: developer.name, developer: developer, developer_games: allGamesByDeveloper });
 })
 
 exports.developer_create_get = asyncHandler(async (req, res, next) => {
