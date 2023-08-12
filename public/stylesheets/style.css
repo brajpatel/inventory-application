@@ -135,7 +135,7 @@ ul {
 }
 
 .game-card:hover {
-  box-shadow: 0 0 20px #a0a0a0;
+  box-shadow: 0 5px 20px #a0a0a0;
 }
 
 .game-card a:hover {
@@ -159,7 +159,7 @@ ul {
 }
 
 .card:hover {
-  box-shadow: 0 0 20px #d6d6d6;
+  box-shadow: 0 5px 20px #d6d6d6;
 }
 
 .game-detail {
@@ -186,7 +186,7 @@ ul {
 }
 
 .game-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   border-bottom: 1px solid #dfdfdf;
   padding-bottom: 0.4rem;
 }
