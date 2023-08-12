@@ -11,7 +11,7 @@ exports.platform_list = asyncHandler(async (req, res, next) => {
 exports.platform_detail = asyncHandler(async (req, res, next) => {
     const [platform, allGamesForPlatform] = await Promise.all([
         Platform.findById(req.params.id).exec(),
-        Game.find({ genre: req.params.id }, "name description image").exec()
+        Game.find({ platform: req.params.id }, "name description image").exec()
     ]);
 
     if(!platform) {
