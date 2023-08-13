@@ -1,3 +1,4 @@
+const { body, validationResult } = require("express-validator");
 const Genre = require('../models/genre');
 const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
@@ -27,9 +28,39 @@ exports.genre_create_get = asyncHandler(async (req, res, next) => {
     res.render("genre_form", { title: "Create Genre" });
 })
 
-exports.genre_create_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Genre Create POST");
-})
+exports.genre_create_post = [
+    body("name", "Genre name must contain at lest 3 characters")
+        .trim()
+        .isLength({ min: 3 })
+        .escape(),
+
+    asyncHandler(async (req, res, next) => {
+        const errors = validationResult(req);
+
+        const genre = new Genre({ name: req.body.name });
+
+        if(!errors.isEmpty()) {
+            res.render("genre_form", {
+                title: "Create Genre",
+                genre: genre,
+                errors: errors.array()
+            });
+
+            return;
+        }
+        else {
+            const genreExists = await Genre.findOne({ name: req.body.name }).collation({ locale: 'en', strength: 2 }).exec();
+
+            if(genreExists) {
+                res.redirect(genreExists.url);
+            }
+            else {
+                await genre.save();
+                res.redirect(genre.url);
+            }
+        }
+    })
+]
 
 exports.genre_update_get = asyncHandler(async (req, res, next) => {
     res.send("TO DO: Genre Update GET");
