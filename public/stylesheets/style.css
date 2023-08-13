@@ -203,3 +203,34 @@ ul {
     padding: 1rem;
   }
 }
+
+form {
+  align-items: start;
+}
+
+.form-input {
+  outline: none;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1.05rem;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: box-shadow .25s ease-in-out;
+}
+
+.form-input:focus {
+  box-shadow: 0 0 5px rgb(124, 105, 191);
+}
+
+.submit-btn {
+  background: rgb(124, 105, 191);
+  color: white;
+}
+
+.submit-btn:hover {
+  color: white;
+  background: rgb(152, 134, 214);
+}
