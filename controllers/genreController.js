@@ -24,7 +24,7 @@ exports.genre_detail = asyncHandler(async (req, res, next) => {
 })
 
 exports.genre_create_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Genre Create GET");
+    res.render("genre_form", { title: "Create Genre" });
 })
 
 exports.genre_create_post = asyncHandler(async (req, res, next) => {
