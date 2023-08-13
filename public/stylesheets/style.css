@@ -171,7 +171,7 @@ ul {
 .game-detail {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
 .game-detail img {
