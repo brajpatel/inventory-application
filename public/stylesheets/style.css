@@ -215,7 +215,7 @@ form {
 }
 
 .form-input,
-.submit-btn {
+.action-btn {
   outline: none;
   padding: 0.375rem 0.75rem;
   border-radius: 0.25rem;
@@ -234,14 +234,18 @@ form {
   box-shadow: 0 0 5px rgb(124, 105, 191);
 }
 
-.submit-btn {
+a.action-btn {
+  text-decoration: none;
+}
+
+.action-btn {
   background: rgb(124, 105, 191);
   color: white;
   border: none;
   font-size: 1rem;
 }
 
-.submit-btn:hover {
+.action-btn:hover {
   color: white;
   background: rgb(152, 134, 214);
 }
