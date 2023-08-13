@@ -7,7 +7,7 @@ block content
     form(class="form-group d-flex flex-column" action="" method="POST")
         label(for="name") #[strong Genre:]
         input(class="form-input mb-3" id="name" name="name" placeholder="Shooter, Racing, Party etc." value=(genre===undefined ? '' : genre.name) type="text" autofocus)
-        button(class="btn submit-btn" type="submit") Submit
+        button(class="submit-btn" type="submit") Submit
 
     if errors
       ul
