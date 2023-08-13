@@ -8,8 +8,16 @@ block content
       div(class="text-center game-info")
         p(class="game-title") #[strong #{title}]
         p #{game.description}
-        p #[strong Price:] £#{game.price}
-        p #[strong Number in stock:] #{game.number_in_stock}
+        p #[strong Price: ]
+          if game.price > 0
+            span £#{game.price}
+          else
+            span Free
+        p #[strong Number in stock: ]
+          if game.number_in_stock > 0
+            span #{game.number_in_stock}
+          else
+            span Sold out
         p #[strong Initial release date:] #{game.release_date_formatted}
         p #[strong Developer:] #[a(href=game.developer.url) #{game.developer.name}]
         p #[strong Genres: ]
