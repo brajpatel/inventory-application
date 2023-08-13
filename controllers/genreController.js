@@ -21,7 +21,11 @@ exports.genre_detail = asyncHandler(async (req, res, next) => {
         return next(err);
     }
 
-    res.render("genre_detail", { title: genre.name, genre: genre, genre_games: allGamesInGenre });
+    res.render("genre_detail", {
+        title: genre.name,
+        genre: genre,
+        genre_games: allGamesInGenre
+    });
 })
 
 exports.genre_create_get = asyncHandler(async (req, res, next) => {
@@ -71,7 +75,20 @@ exports.genre_update_post = asyncHandler(async (req, res, next) => {
 })
 
 exports.genre_delete_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Genre Delete GET");
+    const [genre, allGamesInGenre] = await Promise.all([
+        Genre.findById(req.params.id).exec(),
+        Game.find({ genre: req.params.id }, "name description image").exec()
+    ]);
+
+    if(!genre) {
+        res.redirect("/collection/genres");
+    }
+
+    res.render("genre_delete", {
+        title: genre.name,
+        genre: genre,
+        genre_games: allGamesInGenre
+    });
 })
 
 exports.genre_delete_post = asyncHandler(async (req, res, next) => {
