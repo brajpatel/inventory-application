@@ -24,7 +24,7 @@ exports.platform_detail = asyncHandler(async (req, res, next) => {
 })
 
 exports.platform_create_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Platform Create GET");
+    res.render("platform_form", { title: "Create Platform" });
 })
 
 exports.platform_create_post = asyncHandler(async (req, res, next) => {
