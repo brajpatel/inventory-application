@@ -8,6 +8,8 @@ block content
       div(class="text-center game-info")
         p(class="game-title") #[strong #{title}]
         p #{game.description}
+        p #[strong Price:] £#{game.price}
+        p #[strong Number in stock:] #{game.number_in_stock}
         p #[strong Initial release date:] #{game.release_date_formatted}
         p #[strong Developer:] #[a(href=game.developer.url) #{game.developer.name}]
         p #[strong Genres: ]
