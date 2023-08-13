@@ -92,5 +92,22 @@ exports.genre_delete_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.genre_delete_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Genre Delete POST");
+    const [genre, allGamesInGenre] = await Promise.all([
+        Genre.findById(req.params.id).exec(),
+        Game.find({ genre: req.params.id }, "name description image").exec()
+    ]);
+
+    if(allGamesInGenre.length > 0) {
+        res.render("genre_delete", {
+            title: genre.name,
+            genre: genre,
+            genre_games: allGamesInGenre
+        });
+
+        return;
+    }
+    else {
+        await Genre.findByIdAndRemove(req.body.genreid);
+        res.redirect("/collection/genres");
+    }
 })
