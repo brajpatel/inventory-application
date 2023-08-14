@@ -88,5 +88,22 @@ exports.developer_delete_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.developer_delete_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Developer Delete POST");
+    const [developer, allGamesByDeveloper] = await Promise.all([
+        Developer.findById(req.params.id).exec(),
+        Game.find({ developer: req.params.id }, "name description image").exec()
+    ]);
+    
+    if(allGamesByDeveloper.length > 0) {
+        res.render("developer_delete", {
+            title: developer.name,
+            developer: developer,
+            developer_games: allGamesByDeveloper
+        });
+
+        return;
+    }
+    else {
+        await Developer.findByIdAndRemove(req.body.developerid);
+        res.redirect("/collection/developers");
+    }
 })
