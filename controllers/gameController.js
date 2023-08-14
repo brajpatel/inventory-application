@@ -27,7 +27,7 @@ exports.game_detail = asyncHandler(async (req, res, next) => {
 })
 
 exports.game_create_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Game Create GET");
+    res.render("game_form", { title: "Create Game" });
 })
 
 exports.game_create_post = asyncHandler(async (req, res, next) => {
