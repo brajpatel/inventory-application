@@ -6,7 +6,7 @@ block content
     hr
     form(class="form-group d-flex flex-column" action="" method="POST")
         label(for="name") #[strong Developer:]
-        input(class="form-input mb-3" id="name" name="name" placeholder="FromSoftware, Rockstar Games etc." value=(developer===undefined ? '' : platform.name) type="text" autofocus)
+        input(class="form-input mb-3" id="name" name="name" placeholder="FromSoftware, Rockstar Games etc." value=(developer===undefined ? '' : developer.name) type="text" autofocus)
         button(class="action-btn" type="submit") Submit
 
     if errors
