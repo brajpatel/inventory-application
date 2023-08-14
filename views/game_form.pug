@@ -6,9 +6,43 @@ block content
     hr
     form(class="form-group d-flex flex-column" action="" method="POST")
         label(for="name") #[strong Name:]
-        input(class="form-input mb-3" id="name" name="name" placeholder="Elden Ring, Nier:Automata, Mario Kart etc." value=(developer===undefined ? '' : platform.name) required="true" type="text" autofocus)
+        input(class="form-input mb-3" id="name" name="name" placeholder="Elden Ring, Nier:Automata, Mario Kart etc." value=(game===undefined ? '' : game.name) required="true" type="text" autofocus)
+
         label(for="description") #[strong Description:]
-        textarea(class="form-input mb-3" id="description" name="description" placeholder="Description - Max. 400 characters" value=(developer===undefined ? '' : platform.name) required="true" type="textarea")
+        textarea(class="form-input mb-3" id="description" name="description" placeholder="Description - Max. 400 characters" value=(game===undefined ? '' : game.description) required="true" type="textarea")
+
+        label(for="price") #[strong Price:]
+        input(class="form-input mb-3" id="price" name="price" placeholder="39.99" value=(game===undefined ? '' : game.price) min="0" required="true" type="number")
+
+        label(for="number_in_stock") #[strong Number in stock:]
+        input(class="form-input mb-3" id="number_in_stock" name="number_in_stock" placeholder="0" value=(game===undefined ? '' : game.number_in_stock) min="0" required="true" type="number")
+
+        label(for="initial_release_date") #[strong Initial release date:]
+        input(class="form-input mb-3" id="initial_release_date" name="initial_release_date" value=(game===undefined ? '' : game.initial_release_date) required="true" type="date")
+
+        label(for="developer") #[strong Developer:]
+        select(class="bg-white form-input mb-3" id="developer" name='developer' placeholder='Select author' required='true' type='select')
+            - developers.sort((a, b) => {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0});
+            for developer in developers
+              if game
+                option(value=developer._id selected=(developer._id.toString()===game.developer._id.toString() ? 'selected' : false) ) #{developer.name}
+              else
+                option(value=developer._id) #{developer.name}
+        
+        label(for="platform") #[strong Platform:]
+        div(class="mb-3")
+          for platform in platforms
+            div(class="d-inline mr-4")
+              input(class="checkbox mr-2" name='platform' id=platform._id, value=platform._id, checked=platform.checked type='checkbox')
+              label(for=platform._id) #{platform.name}
+            
+        label(for="genre") #[strong Platform:]
+        div(class="mb-3")
+          for genre in genres
+            div(class="d-inline mr-4")
+              input(class="checkbox mr-2" name='genre' id=genre._id, value=genre._id, checked=genre.checked type='checkbox')
+              label(for=genre._id) #{genre.name}
+
         button(class="action-btn" type="submit") Submit
 
     if errors

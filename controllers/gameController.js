@@ -1,4 +1,7 @@
 const Game = require('../models/game');
+const Developer = require('../models/developer');
+const Platform = require('../models/platform');
+const Genre = require('../models/genre');
 const asyncHandler = require('express-async-handler');
 
 exports.game_list = asyncHandler(async (req, res, next) => {
@@ -27,7 +30,18 @@ exports.game_detail = asyncHandler(async (req, res, next) => {
 })
 
 exports.game_create_get = asyncHandler(async (req, res, next) => {
-    res.render("game_form", { title: "Create Game" });
+    const [allDevelopers, allPlatforms, allGenres] = await Promise.all([
+        Developer.find().exec(),
+        Platform.find().exec(),
+        Genre.find().exec()
+    ])
+
+    res.render("game_form", {
+        title: "Create Game",
+        developers: allDevelopers,
+        platforms: allPlatforms,
+        genres: allGenres
+    });
 })
 
 exports.game_create_post = asyncHandler(async (req, res, next) => {
