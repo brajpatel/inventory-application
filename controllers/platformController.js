@@ -1,3 +1,4 @@
+const { body, validationResult } = require("express-validator");
 const Platform = require('../models/platform');
 const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
@@ -27,9 +28,39 @@ exports.platform_create_get = asyncHandler(async (req, res, next) => {
     res.render("platform_form", { title: "Create Platform" });
 })
 
-exports.platform_create_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Platform Create POST");
-})
+exports.platform_create_post = [
+    body("name", "Platform name must contain at least 3 characters")
+        .trim()
+        .isLength({ min: 3 })
+        .escape(),
+
+    asyncHandler(async (req, res, next) => {
+        const errors = validationResult(req);
+
+        const platform = new Platform({ name: req.body.name });
+
+        if(!errors.isEmpty()) {
+            res.render("genre_form", {
+                title: "Create Platform",
+                platform: platform,
+                errors: errors.array()
+            });
+
+            return;
+        }
+        else {
+            const platformExists = await Platform.findOne({ name: req.body.name }).collation({ locale: 'en', strength: 2 }).exec();
+
+            if(platformExists) {
+                res.redirect(platformExists.url);
+            }
+            else {
+                await platform.save();
+                res.redirect(platform.url);
+            }
+        }
+    })
+]
 
 exports.platform_update_get = asyncHandler(async (req, res, next) => {
     res.send("TO DO: Platform Update GET");
