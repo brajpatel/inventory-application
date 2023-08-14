@@ -6,9 +6,9 @@ block content
     hr
     form(class="form-group d-flex flex-column" action="" method="POST")
         label(for="name") #[strong Name:]
-        input(class="form-input mb-3" id="name" name="name" placeholder="Elden Ring, Nier:Automata, Mario Kart etc." value=(developer===undefined ? '' : platform.name) type="text" autofocus)
+        input(class="form-input mb-3" id="name" name="name" placeholder="Elden Ring, Nier:Automata, Mario Kart etc." value=(developer===undefined ? '' : platform.name) required="true" type="text" autofocus)
         label(for="description") #[strong Description:]
-        textarea(class="form-input mb-3" id="description" name="description" placeholder="Description - Max. 400 characters" value=(developer===undefined ? '' : platform.name) type="textarea")
+        textarea(class="form-input mb-3" id="description" name="description" placeholder="Description - Max. 400 characters" value=(developer===undefined ? '' : platform.name) required="true" type="textarea")
         button(class="action-btn" type="submit") Submit
 
     if errors
