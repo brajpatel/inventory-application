@@ -24,7 +24,7 @@ exports.developer_detail = asyncHandler(async (req, res, next) => {
 })
 
 exports.developer_create_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Developer Create GET");
+    res.render("developer_form", { title: "Create Developer" });
 })
 
 exports.developer_create_post = asyncHandler(async (req, res, next) => {
