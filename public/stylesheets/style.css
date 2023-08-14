@@ -211,6 +211,7 @@ ul {
 }
 
 form {
+  justify-content: start;
   align-items: start;
 }
 
@@ -280,7 +281,7 @@ a.action-btn {
   color: white;
   border: none;
   font-size: 1.1rem;
-  align-self: center;
+  padding: 0.5rem 0.85rem;
 }
 
 .action-btn:hover {
