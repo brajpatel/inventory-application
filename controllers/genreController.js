@@ -33,7 +33,7 @@ exports.genre_create_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.genre_create_post = [
-    body("name", "Genre name must contain at lest 3 characters")
+    body("name", "Genre name must contain at least 3 characters")
         .trim()
         .isLength({ min: 3 })
         .escape(),
