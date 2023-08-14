@@ -104,6 +104,6 @@ exports.platform_delete_post = asyncHandler(async (req, res, next) => {
     }
     else {
         await Platform.findByIdAndRemove(req.body.platformid);
-        res.redirect("/collection/platform");
+        res.redirect("/collection/platforms");
     }
 })
