@@ -1,3 +1,4 @@
+const { body, validationResult } = require("express-validator");
 const Developer = require('../models/developer');
 const Game = require('../models/game');
 const asyncHandler = require('express-async-handler');
@@ -27,9 +28,39 @@ exports.developer_create_get = asyncHandler(async (req, res, next) => {
     res.render("developer_form", { title: "Create Developer" });
 })
 
-exports.developer_create_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Developer Create POST");
-})
+exports.developer_create_post = [
+    body("name", "Developer must contain at least 3 characters")
+        .trim()
+        .isLength({ min: 3 })
+        .escape(),
+
+    asyncHandler(async (req, res, next) => {
+        const errors = validationResult(req);
+
+        const developer = new Developer({ name: req.body.name });
+
+        if(!errors.isEmpty()) {
+            res.render("developer_form", {
+                title: "Create Developer",
+                developer: developer,
+                errors: errors.array()
+            });
+
+            return;
+        }
+        else {
+            const developerExists = await Developer.findOne({ name: req.body.name }).collation({ locale: "en", strength: 2 }).exec();
+
+            if(developerExists) {
+                res.redirect(developerExists.url);
+            }
+            else {
+                await developer.save();
+                res.redirect(developer.url);
+            }
+        }
+    })
+]
 
 exports.developer_update_get = asyncHandler(async (req, res, next) => {
     res.send("TO DO: Developer Update GET");
