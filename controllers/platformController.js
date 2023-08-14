@@ -71,9 +71,39 @@ exports.platform_update_post = asyncHandler(async (req, res, next) => {
 })
 
 exports.platform_delete_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Platform Delete GET");
+    const [platform, allGamesForPlatform] = await Promise.all([
+        Platform.findById(req.params.id).exec(),
+        Game.find({ platform: req.params.id }, "name description image").exec()
+    ]);
+
+    if(!platform) {
+        res.redirect("/collection/platforms");
+    }
+
+    res.render("platform_delete", {
+        title: platform.name,
+        platform: platform,
+        platform_games: allGamesForPlatform
+    });
 })
 
 exports.platform_delete_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Platform Delete POST");
+    const [platform, allGamesForPlatform] = await Promise.all([
+        Platform.findById(req.params.id).exec(),
+        Game.find({ platform: req.params.id }, "name description image").exec()
+    ]);
+
+    if(allGamesForPlatform.length > 0) {
+        res.render("platform_delete", {
+            title: platform.name,
+            platform: platform,
+            platform_games: allGamesForPlatform
+        });
+
+        return;
+    }
+    else {
+        await Platform.findByIdAndRemove(req.body.platformid);
+        res.redirect("/collection/platform");
+    }
 })
