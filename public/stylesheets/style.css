@@ -38,6 +38,7 @@ a:hover {
 
 hr {
   border-color: #dfdfdf;
+  width: 100%;
 }
 
 ul {
@@ -188,7 +189,6 @@ ul {
   border: 1px solid #dfdfdf;
   box-shadow: 0 5px 10px #d6d6d6;
   border-radius: 15px;
-  padding: 0 1rem;
 }
 
 .game-title {
@@ -280,6 +280,7 @@ a.action-btn {
   color: white;
   border: none;
   font-size: 1.1rem;
+  align-self: center;
 }
 
 .action-btn:hover {
