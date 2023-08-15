@@ -100,6 +100,48 @@ exports.game_create_post = [
         .escape(),
 
     asyncHandler(async (req, res, next) => {
+        const errors = validationResult(req);
+
+        const game = new Game({
+            name: req.body.name,
+            release_date: req.body.release_date,
+            description: req.body.description,
+            price: req.body.price,
+            number_in_stock: req.body.number_in_stock,
+            developer: req.body.developer,
+            platform: req.body.platform,
+            genre: req.body.genre,
+            image: { data: req.file.filename, contentType: 'image/png' }
+        })
+
+        if(!errors.isEmpty()) {
+            const [allDevelopers, allPlatforms, allGenres] = await Promise.all([
+                Developer.find().exec(),
+                Platform.find().exec(),
+                Genre.find().exec()
+            ])
+            
+            for(const platform of allPlatforms) {
+                if(game.platform.indexOf(platform._id) > -1) {
+                    platform.checked = "true";
+                }
+            }
+
+            for(const genre of allGenres) {
+                if(game.genre.indexOf(genre._id) > -1) {
+                    genre.checked = "true";
+                }
+            }
+
+            res.render("game_form", {
+                title: "Create Game",
+                game: game,
+                developers: allDevelopers,
+                platforms: allPlatforms,
+                genres: allGenres,
+                errors: errors.array()
+            });
+        }
         
     })
 ]
