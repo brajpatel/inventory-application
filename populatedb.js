@@ -191,9 +191,9 @@ async function createGames() {
             54.99,
             0,
             developers[6],
-            [platforms[0], platforms[2], platforms[5], [platforms[7]]],
+            [platforms[0], platforms[2], platforms[5], platforms[7]],
             [genres[0], genres[5], genres[7]],
-            "/images/assasins-creed.jpg"
+            "/images/assassins-creed.jpg"
         ),
         gameCreate(6,
             "The Legend of Zelda: Tears of the Kingdom",
