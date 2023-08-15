@@ -11,7 +11,7 @@ const GameSchema = new Schema({
     developer: { type: Schema.Types.ObjectId, ref: 'Developer', required: true },
     platform: [{ type: Schema.Types.ObjectId, ref: 'Platform', required: true }],
     genre: [{ type: Schema.Types.ObjectId, ref: 'Genre', required: true }],
-    image: { data: Buffer, contentType: String }
+    image: { type: String }
 
 })
 

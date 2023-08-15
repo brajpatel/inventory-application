@@ -51,12 +51,10 @@ exports.game_create_post = [
         if(typeof req.body.platform === "undefined") req.body.platform = [];
         else req.body.platform = new Array(req.body.platform)
       }
-    },
-    (req, res, next) => {
       if(!(req.body.genre instanceof Array)) {
         if(typeof req.body.genre === "undefined") req.body.genre = [];
         else req.body.genre = new Array(req.body.genre)
-      }  
+      }
     },
     body("name", "Game name must contain at least 3 characters")
         .trim()
@@ -96,7 +94,7 @@ exports.game_create_post = [
             developer: req.body.developer,
             platform: req.body.platform,
             genre: req.body.genre,
-            image: { data: req.file.filename, contentType: 'image/png' }
+            image: req.file.path
         })
 
         if(!errors.isEmpty()) {
