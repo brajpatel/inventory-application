@@ -142,7 +142,17 @@ exports.game_create_post = [
                 errors: errors.array()
             });
         }
-        
+        else {
+            const gameExists = await Game.findOne({ name: req.body.name }).collation({ locale: "en", strength: 2 }).exec();
+
+            if(gameExists) {
+                res.redirect(gameExists.url);
+            }
+            else {
+                await game.save();
+                res.redirect(game.url);
+            }
+        }
     })
 ]
 
