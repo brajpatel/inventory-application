@@ -45,7 +45,8 @@ block content
               p(class="checkbox") &#10004;
               label(for=genre._id) #{genre.name}
               
-        
+        label(for="image") #[strong Image:]
+        input(class="form-input file-input mb-3" id="image" name="image" value=(game===undefined ? '' : game.image) type="file")
 
         button(class="action-btn" type="submit") Submit
 

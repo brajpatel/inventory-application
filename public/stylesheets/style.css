@@ -276,6 +276,13 @@ input[type="checkbox"]:checked ~ .checkbox {
   margin: 0;
 }
 
+.file-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
 a.action-btn {
   text-decoration: none;
 }
