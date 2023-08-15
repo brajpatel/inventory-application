@@ -89,8 +89,7 @@ exports.game_create_post = [
     body("initial_release_date", "Initial release date must not be empty")
         .optional({ values: "falsy" })
         .isISO8601()
-        .toDate()
-        .escape(),
+        .toDate(),
     body("developer", "A developer must be selected")
         .trim()
         .escape(),
