@@ -1,5 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/images')
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+});
+
+const upload = multer({ storage: storage });
 
 const collection_controller = require('../controllers/collectionController');
 const game_controller = require('../controllers/gameController');
@@ -13,7 +26,7 @@ router.get('/', collection_controller.index);
 // GAME ROUTES
 router.get('/game/create', game_controller.game_create_get);
 
-router.post('/game/create', game_controller.game_create_post);
+router.post('/game/create', upload.single("game_image"), game_controller.game_create_post);
 
 router.get('/game/:id/update', game_controller.game_update_get);
 

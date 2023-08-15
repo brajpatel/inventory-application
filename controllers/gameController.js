@@ -4,19 +4,6 @@ const Developer = require('../models/developer');
 const Platform = require('../models/platform');
 const Genre = require('../models/genre');
 const asyncHandler = require('express-async-handler');
-const path = require('path');
-const multer = require('multer');
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './public/images')
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname))
-    }
-});
-
-const upload = multer({ storage: storage });
 
 exports.game_list = asyncHandler(async (req, res, next) => {
     const allGames = await Game.find({}, "name developer image")
@@ -59,7 +46,6 @@ exports.game_create_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.game_create_post = [
-    upload.single("game_image"),
     (req, res, next) => {
       if(!(req.body.platform instanceof Array)) {
         if(typeof req.body.platform === "undefined") req.body.platform = [];
