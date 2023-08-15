@@ -1,8 +1,11 @@
+const { body, validationResult } = require("express-validator");
 const Game = require('../models/game');
 const Developer = require('../models/developer');
 const Platform = require('../models/platform');
 const Genre = require('../models/genre');
 const asyncHandler = require('express-async-handler');
+const multer = require('multer');
+const upload = multer({ dest: './public/images'})
 
 exports.game_list = asyncHandler(async (req, res, next) => {
     const allGames = await Game.find({}, "name developer image")
@@ -44,9 +47,23 @@ exports.game_create_get = asyncHandler(async (req, res, next) => {
     });
 })
 
-exports.game_create_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Game Create POST");
-})
+exports.game_create_post = [
+    (req, res, next) => {
+      if(!(req.body.platform instanceof Array)) {
+        if(typeof req.body.platform === "undefined") req.body.platform = [];
+        else req.body.platform = new Array(req.body.platform)
+      }  
+    },
+    (req, res, next) => {
+      if(!(req.body.genre instanceof Array)) {
+        if(typeof req.body.genre === "undefined") req.body.genre = [];
+        else req.body.genre = new Array(req.body.genre)
+      }  
+    },
+    asyncHandler(async (req, res, next) => {
+        
+    })
+]
 
 exports.game_update_get = asyncHandler(async (req, res, next) => {
     res.send("TO DO: Game Update GET");
