@@ -4,7 +4,7 @@ block content
   div(class="p-4 main-container")
     h1 #{title}
     hr
-    form(class="form-group d-flex flex-column" action="" method="POST")
+    form(class="form-group d-flex flex-column" action="" method="POST" enctype="multipart/form-data")
         label(for="name") #[strong Name:]
         input(class="form-input mb-3" id="name" name="name" placeholder="Elden Ring, Nier:Automata, Mario Kart etc." value=(game===undefined ? '' : game.name) required="true" type="text" autofocus)
 
