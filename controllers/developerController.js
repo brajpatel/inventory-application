@@ -29,7 +29,7 @@ exports.developer_create_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.developer_create_post = [
-    body("name", "Developer must contain at least 3 characters")
+    body("name", "Developer name must contain at least 3 characters")
         .trim()
         .isLength({ min: 3 })
         .escape(),

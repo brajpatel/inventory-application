@@ -60,6 +60,10 @@ exports.game_create_post = [
         else req.body.genre = new Array(req.body.genre)
       }  
     },
+    body("name", "Game name must contain at least 3 characters")
+        .trim()
+        .isLength({ min: 3 })
+        .escape(),
     asyncHandler(async (req, res, next) => {
         
     })
