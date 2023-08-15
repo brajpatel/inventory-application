@@ -4,8 +4,19 @@ const Developer = require('../models/developer');
 const Platform = require('../models/platform');
 const Genre = require('../models/genre');
 const asyncHandler = require('express-async-handler');
+const path = require('path');
 const multer = require('multer');
-const upload = multer({ dest: './public/images'})
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/images')
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+});
+
+const upload = multer({ storage: storage });
 
 exports.game_list = asyncHandler(async (req, res, next) => {
     const allGames = await Game.find({}, "name developer image")
@@ -48,11 +59,12 @@ exports.game_create_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.game_create_post = [
+    upload.single("game_image"),
     (req, res, next) => {
       if(!(req.body.platform instanceof Array)) {
         if(typeof req.body.platform === "undefined") req.body.platform = [];
         else req.body.platform = new Array(req.body.platform)
-      }  
+      }
     },
     (req, res, next) => {
       if(!(req.body.genre instanceof Array)) {
@@ -64,6 +76,29 @@ exports.game_create_post = [
         .trim()
         .isLength({ min: 3 })
         .escape(),
+    body("description", "Game description must contain at least 20 characters")
+        .trim()
+        .isLength({ min: 20 })
+        .escape(),
+    body("price", "Price must be a value greater than or equal to 0")
+        .trim()
+        .escape(),
+    body("number_in_stock", "Number in stock must be a value greater than or equal to 0")
+        .trim()
+        .escape(),
+    body("initial_release_date", "Initial release date must not be empty")
+        .optional({ values: "falsy" })
+        .isISO8601()
+        .toDate()
+        .escape(),
+    body("developer", "A developer must be selected")
+        .trim()
+        .escape(),
+    body("platform.*")
+        .escape(),
+    body("genre.*")
+        .escape(),
+
     asyncHandler(async (req, res, next) => {
         
     })

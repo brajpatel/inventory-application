@@ -17,8 +17,8 @@ block content
         label(for="number_in_stock") #[strong Number in stock:]
         input(class="form-input mb-3" id="number_in_stock" name="number_in_stock" placeholder="0" value=(game===undefined ? '' : game.number_in_stock) min="0" required="true" type="number")
 
-        label(for="initial_release_date") #[strong Initial release date:]
-        input(class="form-input mb-3" id="initial_release_date" name="initial_release_date" value=(game===undefined ? '' : game.initial_release_date) required="true" type="date")
+        label(for="release_date") #[strong Initial release date:]
+        input(class="form-input mb-3" id="release_date" name="release_date" value=(game===undefined ? '' : game.release_date) required="true" type="date")
 
         label(for="developer") #[strong Developer:]
         select(class="bg-white form-input mb-3" id="developer" name='developer' placeholder='Select author' required='true' type='select')
@@ -45,8 +45,8 @@ block content
               p(class="checkbox") &#10004;
               label(for=genre._id) #{genre.name}
               
-        label(for="image") #[strong Image:]
-        input(class="form-input file-input mb-3" id="image" name="image" value=(game===undefined ? '' : game.image) type="file")
+        label(for="game_image") #[strong Image:]
+        input(class="form-input file-input mb-3" id="game_image" name="game_image" value=(game===undefined ? '' : game.image) type="file")
 
         button(class="action-btn" type="submit") Submit
 
