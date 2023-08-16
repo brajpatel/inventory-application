@@ -87,6 +87,12 @@ exports.game_create_post = [
     asyncHandler(async (req, res, next) => {
         const errors = validationResult(req);
 
+        let filename = '';
+
+        if(req.file !== undefined) {
+            filename = req.file.originalname;
+        }
+
         const game = new Game({
             name: req.body.name,
             release_date: req.body.release_date,
@@ -96,7 +102,7 @@ exports.game_create_post = [
             developer: req.body.developer,
             platform: req.body.platform,
             genre: req.body.genre,
-            image: req.file.originalname
+            image: filename
         })
 
         if(!errors.isEmpty()) {
