@@ -135,6 +135,7 @@ ul {
 }
 
 .game-card {
+  word-wrap: break-word;
   max-width: 350px;
   border-radius: 10px;
   border: 1px solid #dfdfdf;
