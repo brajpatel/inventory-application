@@ -4,7 +4,7 @@ block content
   div(class="p-4 main-container")
     div(class="mt-3 game-detail")
       div
-        img(src=(game.image==='' ? '/images/default-image.jpg' : game.image) alt="game image")
+        img(src=(game.image===undefined ? '/images/default-image.jpg' : `/images/${game.image}`) alt="game image")
       div(class="text-center px-4 py-3 game-info")
         p(class="game-title") #[strong #{title}]
         p #{game.description}

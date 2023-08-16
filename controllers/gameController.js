@@ -55,6 +55,8 @@ exports.game_create_post = [
         if(typeof req.body.genre === "undefined") req.body.genre = [];
         else req.body.genre = new Array(req.body.genre)
       }
+
+      next();
     },
     body("name", "Game name must contain at least 3 characters")
         .trim()
@@ -94,7 +96,7 @@ exports.game_create_post = [
             developer: req.body.developer,
             platform: req.body.platform,
             genre: req.body.genre,
-            image: req.file.path
+            image: req.file.originalname
         })
 
         if(!errors.isEmpty()) {
