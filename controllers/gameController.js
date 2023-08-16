@@ -89,8 +89,8 @@ exports.game_create_post = [
 
         let filename = '';
 
-        if(req.file !== undefined) {
-            filename = req.file.originalname;
+        if(!(req.file === undefined)) {
+            filename = req.file.filename;
         }
 
         const game = new Game({
