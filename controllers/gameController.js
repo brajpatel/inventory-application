@@ -169,5 +169,6 @@ exports.game_delete_get = asyncHandler(async (req, res, next) => {
 })
 
 exports.game_delete_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Game Delete POST");
+    await Game.findByIdAndRemove(req.body.gameid);
+    res.redirect('/collection/games');
 })
