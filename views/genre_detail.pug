@@ -10,7 +10,7 @@ block content
           a(href=game.url) 
             img(src=`/images/${game.image}` alt="game image")
             div(class="p-2")
-              p #[strong #{game.name}]
+              p(class="capitalise") #[strong #{game.name}]
 
       else
         li This genre has no games.

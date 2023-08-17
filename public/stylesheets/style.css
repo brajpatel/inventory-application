@@ -157,6 +157,10 @@ ul {
   border-top-right-radius: 10px;
 }
 
+.capitalise {
+  text-transform: capitalize;
+}
+
 .card {
   border: 1px solid #dfdfdf;
   transition: 0.25s ease;
