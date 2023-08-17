@@ -63,7 +63,18 @@ exports.platform_create_post = [
 ]
 
 exports.platform_update_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Platform Update GET");
+    const platform = await Platform.findById(req.params.id).exec();
+
+    if(!platform) {
+        const err = new Error("Platform not found");
+        err.status = 404;
+        return next(err);
+    }
+
+    res.render("platform_form", {
+        title: "Update Platform",
+        platform: platform
+    })
 })
 
 exports.platform_update_post = asyncHandler(async (req, res, next) => {
