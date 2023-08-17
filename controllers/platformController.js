@@ -77,9 +77,42 @@ exports.platform_update_get = asyncHandler(async (req, res, next) => {
     })
 })
 
-exports.platform_update_post = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Platform Update POST");
-})
+exports.platform_update_post = [
+    body("name", "Platform name must contain at least 3 characters")
+        .trim()
+        .isLength({ min: 3 })
+        .escape(),
+
+    asyncHandler(async (req, res, next) => {
+        const errors = validationResult(req);
+
+        const platform = new Platform({
+            name: req.body.name,
+            _id: req.params.id
+        })
+
+        if(!errors.isEmpty()) {
+            res.render("platform_form", {
+                title: "Update Platform",
+                platform: platform,
+                errors: errors.array()
+            });
+
+            return;
+        }
+        else {
+            const platformExists = await Platform.findOne({ name: req.body.name }).collation({ locale: 'en', strength: 2 }).exec();
+            
+            if(platformExists) {
+                res.redirect(platformExists.url);
+            }
+            else {
+                const updatedPlatform = await Platform.findByIdAndUpdate(req.params.id, platform, {});
+                res.redirect(updatedPlatform.url);
+            }
+        }
+    })
+]
 
 exports.platform_delete_get = asyncHandler(async (req, res, next) => {
     const [platform, allGamesForPlatform] = await Promise.all([
