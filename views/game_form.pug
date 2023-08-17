@@ -10,8 +10,7 @@ block content
 
         label(for="description") #[strong Description:]
         textarea(class="form-input textarea mb-3" id="description" name="description" placeholder="Description - Between 20 to 400 characters" min="20" max="400" required="true")
-          if game !== undefined
-            #{game.description}
+          #{game === undefined ? '' : game.description}
 
         label(for="price") #[strong Price:]
         input(class="form-input mb-3" id="price" name="price" placeholder="0" value=(game===undefined ? '' : game.price) min="0" required="true" type="number")
