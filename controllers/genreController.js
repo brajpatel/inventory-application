@@ -112,7 +112,6 @@ exports.genre_update_post = [
             }
             else {
                 const updatedGenre = await Genre.findByIdAndUpdate(req.params.id, genre, {}).exec();
-
                 res.redirect(updatedGenre.url);
             }
         }
