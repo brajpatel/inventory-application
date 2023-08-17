@@ -10,6 +10,11 @@ h1 {
   font-family: 'REM', sans-serif;
 }
 
+h1,
+.capitalise {
+  text-transform: capitalize;
+}
+
 p {
   margin: 0;
 }
@@ -155,10 +160,6 @@ ul {
   max-width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-}
-
-.capitalise {
-  text-transform: capitalize;
 }
 
 .card {
