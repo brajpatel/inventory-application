@@ -294,6 +294,12 @@ input[type="checkbox"]:checked ~ .checkbox {
   height: fit-content;
 }
 
+.actions-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
 a.action-btn {
   text-decoration: none;
 }
