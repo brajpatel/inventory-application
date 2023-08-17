@@ -67,7 +67,18 @@ exports.genre_create_post = [
 ]
 
 exports.genre_update_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Genre Update GET");
+    const genre = await Genre.findById(req.params.id).exec();
+
+    if(!genre) {
+        const err = new Error("Genre not found");
+        err.status = 404;
+        return next(err);
+    }
+
+    res.render("genre_form", {
+        title: "Update Genre",
+        genre: genre
+    });
 })
 
 exports.genre_update_post = asyncHandler(async (req, res, next) => {
