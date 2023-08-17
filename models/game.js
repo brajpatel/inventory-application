@@ -23,4 +23,8 @@ GameSchema.virtual('release_date_formatted').get(function() {
     return DateTime.fromJSDate(this.release_date).toLocaleString(DateTime.DATE_MED);
 })
 
+GameSchema.virtual('release_date_update').get(function() {
+    return DateTime.fromJSDate(this.release_date).toISODate();
+})
+
 module.exports = mongoose.model('Game', GameSchema);
