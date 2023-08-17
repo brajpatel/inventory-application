@@ -245,6 +245,10 @@ label {
   box-shadow: 0 0 5px rgb(124, 105, 191);
 }
 
+.textarea {
+  min-height: 100px;
+}
+
 .checkbox-list {
   display: flex;
   flex-wrap: wrap;

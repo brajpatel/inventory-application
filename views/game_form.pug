@@ -9,7 +9,7 @@ block content
         input(class="form-input mb-3" id="name" name="name" placeholder="Elden Ring, Nier:Automata, Mario Kart etc." value=(game===undefined ? '' : game.name) required="true" type="text" autofocus)
 
         label(for="description") #[strong Description:]
-        textarea(class="form-input mb-3" id="description" name="description" placeholder="Description - Max. 400 characters" value=(game===undefined ? '' : game.description) required="true" type="textarea")
+        textarea(class="form-input textarea mb-3" id="description" name="description" placeholder="Description - Max. 400 characters" value=(game===undefined ? '' : game.description) required="true" type="textarea")
 
         label(for="price") #[strong Price:]
         input(class="form-input mb-3" id="price" name="price" placeholder="39.99" value=(game===undefined ? '' : game.price) min="0" required="true" type="number")
