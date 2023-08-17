@@ -10,7 +10,7 @@ block content
         each game, index in genre_games
           li(class="text-center cascade-fade-in game-card" style=`--delay:${index + 1}`)
             a(href=game.url) 
-              img(src=(game.image==='' ? '/images/default-image.jpg' : `/images/${game.image}`) alt="game image")
+              img(src=`/images/${game.image}` alt="game image")
               div(class="p-2")
                 p #[strong #{game.name}]
 
