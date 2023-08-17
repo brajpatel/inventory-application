@@ -47,16 +47,25 @@ exports.game_create_get = asyncHandler(async (req, res, next) => {
 
 exports.game_create_post = [
     (req, res, next) => {
-      if(!(req.body.platform instanceof Array)) {
-        if(typeof req.body.platform === "undefined") req.body.platform = [];
-        else req.body.platform = new Array(req.body.platform)
-      }
-      if(!(req.body.genre instanceof Array)) {
-        if(typeof req.body.genre === "undefined") req.body.genre = [];
-        else req.body.genre = new Array(req.body.genre)
-      }
+        if(!(req.body.platform instanceof Array)) {
+          if(typeof req.body.platform === "undefined") {
+            req.body.platform = [];
+          }
+          else {
+            req.body.platform = new Array(req.body.platform)
+          }
+        }
 
-      next();
+        if(!(req.body.genre instanceof Array)) {
+          if(typeof req.body.genre === "undefined") {
+            req.body.genre = [];
+          }
+          else {
+            req.body.genre = new Array(req.body.genre)
+          }
+        }
+  
+        next();
     },
     body("name", "Game name must contain at least 3 characters")
         .trim()
@@ -197,7 +206,7 @@ exports.game_update_post = [
             req.body.platform = [];
           }
           else {
-            req.body.platform = new Array(req.body.platform)
+            req.body.platform = new Array(req.body.platform);
           }
         }
 
@@ -206,7 +215,7 @@ exports.game_update_post = [
             req.body.genre = [];
           }
           else {
-            req.body.genre = new Array(req.body.genre)
+            req.body.genre = new Array(req.body.genre);
           }
         }
   
