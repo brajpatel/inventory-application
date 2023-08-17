@@ -18,7 +18,7 @@ block content
         input(class="form-input mb-3" id="number_in_stock" name="number_in_stock" placeholder="0" value=(game===undefined ? '' : game.number_in_stock) min="0" required="true" type="number")
 
         label(for="release_date") #[strong Initial release date:]
-        input(class="form-input mb-3" id="release_date" name="release_date" value=(game===undefined ? '' : game.release_date) required="true" type="date")
+        input(class="form-input mb-3" id="release_date" name="release_date" value=(game===undefined ? '' : game.release_date_update) required="true" type="date")
 
         label(for="developer") #[strong Developer:]
         select(class="bg-white form-input mb-3" id="developer" name='developer' placeholder='Select author' required='true' type='select')
