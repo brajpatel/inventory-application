@@ -63,7 +63,18 @@ exports.developer_create_post = [
 ]
 
 exports.developer_update_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Developer Update GET");
+    const developer = await Developer.findById(req.params.id).exec();
+
+    if(!developer) {
+        const err = new Error("Developer not found");
+        err.status = 404;
+        return next(err);
+    }
+
+    res.render("developer_form", {
+        title: "Update Developer",
+        developer: developer
+    })
 })
 
 exports.developer_update_post = asyncHandler(async (req, res, next) => {
