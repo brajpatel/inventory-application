@@ -148,7 +148,30 @@ exports.game_create_post = [
 ]
 
 exports.game_update_get = asyncHandler(async (req, res, next) => {
-    res.send("TO DO: Game Update GET");
+    const [game, allDevelopers, allPlatforms, allGenres] = await Promise.all([
+        Game.findById(req.params.id)
+            .populate("developer")
+            .populate("genre")
+            .populate("platform")
+            .exec(),
+        Developer.find().exec(),
+        Platform.find().exec(),
+        Genre.find().exec()
+    ])
+
+    if(!game) {
+        const err = new Error("Game not found");
+        err.status = 404;
+        return next(err);
+    }
+
+    res.render("game_form", {
+        title: "Update Game",
+        game: game,
+        developers: allDevelopers,
+        platforms: allPlatforms,
+        genres: allGenres
+    })
 })
 
 exports.game_update_post = asyncHandler(async (req, res, next) => {
