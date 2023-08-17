@@ -297,6 +297,7 @@ input[type="checkbox"]:checked ~ .checkbox {
 .actions-container {
   display: flex;
   gap: 1rem;
+  margin-top: 0.8rem;
 }
 
 .actions-container.game-actions {
