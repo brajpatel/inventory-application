@@ -87,7 +87,7 @@ exports.game_create_post = [
     asyncHandler(async (req, res, next) => {
         const errors = validationResult(req);
 
-        let filename = '';
+        let filename = 'default-image.jpg';
 
         if(!(req.file === undefined)) {
             filename = req.file.filename;
