@@ -165,6 +165,22 @@ exports.game_update_get = asyncHandler(async (req, res, next) => {
         return next(err);
     }
 
+    for(const platform of allPlatforms) {
+        for(const game_platform of game.platform) {
+            if(platform._id.toString() === game_platform._id.toString()) {
+                platform.checked = "true";
+            }
+        }
+    }
+
+    for(const genre of allGenres) {
+        for(const game_genre of game.genre) {
+            if(genre._id.toString() === game_genre._id.toString()) {
+                genre.checked = "true";
+            }
+        }
+    }
+
     res.render("game_form", {
         title: "Update Game",
         game: game,
