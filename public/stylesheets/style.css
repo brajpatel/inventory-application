@@ -296,8 +296,11 @@ input[type="checkbox"]:checked ~ .checkbox {
 
 .actions-container {
   display: flex;
-  justify-content: center;
   gap: 1rem;
+}
+
+.actions-container.game-actions {
+  justify-content: center;
 }
 
 a.action-btn {
