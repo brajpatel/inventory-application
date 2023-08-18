@@ -7,7 +7,7 @@ block content
         img(src=`/images/${game.image}` alt="game image")
       div(class="text-center px-4 py-3 game-info")
         p(class="game-title capitalise") #[strong #{title}]
-        p #{game.description}
+        p(class="game-description") #{game.description}
         p #[strong Price: ]
           if game.price > 0
             span £#{game.price}
