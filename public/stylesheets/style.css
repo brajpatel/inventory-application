@@ -70,7 +70,7 @@ ul {
 .home {
   margin: 0 2rem;
   font-size: 1.25rem;
-  box-shadow: 0 0 20px #cbcbcb;
+  box-shadow: 0 5px 15px #cbcbcb;
   border-radius: 20px;
   opacity: 0;
   transform: translateY(-15px);
