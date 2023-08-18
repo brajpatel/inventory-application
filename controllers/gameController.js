@@ -87,6 +87,7 @@ exports.game_create_post = [
         .toDate(),
     body("developer", "A developer must be selected")
         .trim()
+        .isLength({ min: 1 })
         .escape(),
     body("platform.*")
         .escape(),
@@ -241,6 +242,7 @@ exports.game_update_post = [
           .toDate(),
       body("developer", "A developer must be selected")
           .trim()
+          .isLength({ min: 1 })
           .escape(),
       body("platform.*")
           .escape(),
