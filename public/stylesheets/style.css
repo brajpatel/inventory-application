@@ -53,6 +53,7 @@ ul {
 .sidebar-link {
   border-radius: 50px;
   font-size: 1.1rem;
+  padding: 0.4rem 1.4rem;
   outline: none;
   transition: 0.1s;
 }
