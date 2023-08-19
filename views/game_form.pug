@@ -13,7 +13,7 @@ block content
           #{game === undefined ? '' : game.description}
 
         label(for="price") #[strong Price:]
-        input(class="form-input mb-3" id="price" name="price" placeholder="0" value=(game===undefined ? '' : game.price) min="0" required="true" type="number")
+        input(class="form-input mb-3" id="price" name="price" placeholder="0" value=(game===undefined ? '' : game.price) min="0" step=".01" required="true" type="number")
 
         label(for="number_in_stock") #[strong Number in stock:]
         input(class="form-input mb-3" id="number_in_stock" name="number_in_stock" placeholder="0" value=(game===undefined ? '' : game.number_in_stock) min="0" required="true" type="number")
@@ -26,7 +26,7 @@ block content
             - developers.sort((a, b) => {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0});
             for developer in developers
               if game
-                option(value=developer._id selected=(developer._id.toString()===game.developer._id.toString() ? 'selected' : false) ) #{developer.name}
+                option(value=developer._id selected=(developer._id.toString()===game.developer._id.toString() ? 'selected' : false)) #{developer.name}
               else
                 option(value=developer._id) #{developer.name}
         
