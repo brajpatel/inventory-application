@@ -223,7 +223,7 @@ ul {
 
   .game-info {
     padding: 1rem;
-    width: 100%;
+    min-width: 100%;
   }
 }
 
