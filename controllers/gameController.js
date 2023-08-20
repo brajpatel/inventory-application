@@ -207,7 +207,7 @@ exports.game_update_post = [
             req.body.platform = [];
           }
           else {
-            req.body.platform = new Array(req.body.platform);
+            req.body.platform = new Array(req.body.platform)
           }
         }
 
@@ -216,42 +216,42 @@ exports.game_update_post = [
             req.body.genre = [];
           }
           else {
-            req.body.genre = new Array(req.body.genre);
+            req.body.genre = new Array(req.body.genre)
           }
         }
   
         next();
-      },
-      body("name", "Game name must contain at least 3 characters")
-          .trim()
-          .isLength({ min: 3 })
-          .escape(),
-      body("description", "Game description must contain at least 20 characters")
-          .trim()
-          .isLength({ min: 20 })
-          .escape(),
-      body("price", "Price must be a value greater than or equal to 0")
-          .trim()
-          .escape(),
-      body("number_in_stock", "Number in stock must be a value greater than or equal to 0")
-          .trim()
-          .escape(),
-      body("initial_release_date", "Initial release date must not be empty")
-          .optional({ values: "falsy" })
-          .isISO8601()
-          .toDate(),
-      body("developer", "A developer must be selected")
-          .trim()
-          .isLength({ min: 1 })
-          .escape(),
-      body("platform.*")
-          .escape(),
-      body("genre.*")
-          .escape(),
-
+    },
+    body("name", "Game name must contain at least 3 characters")
+        .trim()
+        .isLength({ min: 3 })
+        .escape(),
+    body("description", "Game description must contain at least 20 characters")
+        .trim()
+        .isLength({ min: 20 })
+        .escape(),
+    body("price", "Price must be a value greater than or equal to 0")
+        .trim()
+        .escape(),
+    body("number_in_stock", "Number in stock must be a value greater than or equal to 0")
+        .trim()
+        .escape(),
+    body("initial_release_date", "Initial release date must not be empty")
+        .optional({ values: "falsy" })
+        .isISO8601()
+        .toDate(),
+    body("developer", "A developer must be selected")
+        .trim()
+        .isLength({ min: 1 })
+        .escape(),
+    body("platform.*")
+        .escape(),
+    body("genre.*")
+        .escape(),
+    
     asyncHandler(async (req, res, next) => {
         const errors = validationResult(req);
-
+        
         let filename = 'default-image.jpg';
 
         if(!(req.file === undefined)) {
@@ -268,8 +268,7 @@ exports.game_update_post = [
             platform: req.body.platform,
             genre: req.body.genre,
             image: filename,
-            _id: req.params.id,
-            errors: errors.array()
+            _id: req.params.id
         })
 
         if(!errors.isEmpty()) {
@@ -292,7 +291,7 @@ exports.game_update_post = [
             }
 
             res.render("game_form", {
-                title: "Create Game",
+                title: "Update Game",
                 game: game,
                 developers: allDevelopers,
                 platforms: allPlatforms,
@@ -304,12 +303,12 @@ exports.game_update_post = [
         }
         else {
             const gameExists = await Game.findOne({ name: req.body.name }).collation({ locale: 'en', strength: 2 }).exec();
-            
+
             if(gameExists) {
                 res.redirect(gameExists.url);
             }
             else {
-                const updatedGame = await Game.findByIdAndUpdate(req.params.id, game, {});
+                const updatedGame = await Game.findByIdAndUpdate(req.params.id, game, {}).exec();
                 res.redirect(updatedGame.url);
             }
         }
