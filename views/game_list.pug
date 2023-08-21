@@ -4,7 +4,7 @@ block content
   div(class="p-4 main-container")
     h1= title
     hr
-    ul(class="d-flex flex-wrap game-list")
+    ul(class="game-list")
       each game, index in game_list
         li(class="text-center cascade-fade-in game-card" style=`--delay:${index + 1}`)
           a(href=game.url) 
