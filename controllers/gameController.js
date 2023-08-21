@@ -193,6 +193,7 @@ exports.game_update_get = asyncHandler(async (req, res, next) => {
 
     res.render("game_form", {
         title: "Update Game",
+        message: " (please reupload an image)",
         game: game,
         developers: allDevelopers,
         platforms: allPlatforms,
