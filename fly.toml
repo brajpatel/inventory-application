@@ -1,16 +1,16 @@
-# fly.toml app configuration file generated for holy-wildflower-8090 on 2023-08-21T11:55:58+01:00
+# fly.toml app configuration file generated for restless-fire-4347 on 2023-08-21T14:43:08+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "holy-wildflower-8090"
+app = "restless-fire-4347"
 primary_region = "lhr"
 
 [build]
   image = "flyio/hellofly:latest"
 
 [http_service]
-  internal_port = 3000
+  internal_port = 8080
   force_https = true
   auto_stop_machines = true
   auto_start_machines = true
