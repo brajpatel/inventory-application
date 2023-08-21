@@ -107,7 +107,7 @@ exports.developer_update_post = [
                 res.redirect(developerExists.url);
             }
             else {
-                const updatedDeveloper = await Developer.findByIdAndUpdate(req.params.id, developer, {}).exec();
+                const updatedDeveloper = await Developer.findByIdAndUpdate(req.params.id, developer, {});
                 res.redirect(updatedDeveloper.url);
             }
         }

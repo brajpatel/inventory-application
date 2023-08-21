@@ -308,7 +308,7 @@ exports.game_update_post = [
                 res.redirect(gameExists.url);
             }
             else {
-                const updatedGame = await Game.findByIdAndUpdate(req.params.id, game, {}).exec();
+                const updatedGame = await Game.findByIdAndUpdate(req.params.id, game, {});
                 res.redirect(updatedGame.url);
             }
         }
