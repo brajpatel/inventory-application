@@ -30,7 +30,7 @@ router.post('/game/create', upload.single("game_image"), game_controller.game_cr
 
 router.get('/game/:id/update', game_controller.game_update_get);
 
-router.post('/game/:id/update', game_controller.game_update_post);
+router.post('/game/:id/update', upload.single("game_image"), game_controller.game_update_post);
 
 router.get('/game/:id/delete', game_controller.game_delete_get);
 
