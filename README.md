@@ -1,7 +1,7 @@
 # Inventory Application
-![preview-img1](https://github.com/brajpatel/inventory-application/blob/main/public/images/preview-img1.png)
-![preview-img2](https://github.com/brajpatel/inventory-application/blob/main/public/images/preview-img2.png)
-![preview-img3](https://github.com/brajpatel/inventory-application/blob/main/public/images/preview-img3.png)
+![preview-img1](https://github.com/brajpatel/inventory-application/blob/main/public/images/preview-img1.jpg)
+![preview-img2](https://github.com/brajpatel/inventory-application/blob/main/public/images/preview-img2.jpg)
+![preview-img3](https://github.com/brajpatel/inventory-application/blob/main/public/images/preview-img3.jpg)
 </br>
 ## Summary
 This app was created for The Odin Project's final project in the [Express & Mongoose](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs#express-mongoose) section in the NodeJS Course. Users can...........
