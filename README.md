@@ -10,7 +10,7 @@ This app was created for The Odin Project's final project in the [Express & Mong
 The main objectives of this project were:
 - get further exp working with express, mongoDB etc.
 - CRUD operations
-</br>
+</br></br>
 I chose to work with [Pug](https://pugjs.org/api/getting-started.html). I also chose to use [MongoDB Atlas](https://www.mongodb.com/atlas/database) for the app's databse and used [Mongoose](https://mongoosejs.com/) to connect my Express app to the database. The app was finally deployed using [Fly.io](https://fly.io/).
 <br/><br/>
 These are some of the challenges I faced while making this project:
